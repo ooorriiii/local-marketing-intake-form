@@ -320,5 +320,36 @@
       });
     });
   </script>
+  <!-- Form submission script: sends form data to Google Apps Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbwHazxi-MzABfMQ945LQP8GO5Iglbt4jK3l-fo6UXSS9WuFBOulWWbl0m7d-c5upSyGAA/exec';
+        fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+          .then(() => {
+            alert('ข้อมูลถูกส่งเรียบร้อยแล้ว! / Form submitted successfully!');
+            form.reset();
+          })
+          .catch((error) => {
+            console.error('Error!', error.message);
+            alert('เกิดข้อผิดพลาดในการส่งข้อมูล / There was an error submitting the form');
+          });
+      });
+    });
+  </script>
 </body>
 </html>
