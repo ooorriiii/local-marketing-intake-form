@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบฟอร์มบริการการตลาดท้องถิ่น / Local Marketing Service Form</title>
+  <style>
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      /* Light background for a fresh feel */
+      background: #f7f9fc;
+      color: #333;
+      /* Define primary colours used throughout the page */
+      --primary-color: #1A2980;
+      --secondary-color: #26D0CE;
+      --accent-color: #FF7043;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
+      animation: fadeIn 1.8s ease-out;
+    }
+    /* Logo container for the rotating logo */
+    .logo-container {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-container img {
+      width: 120px;
+      height: auto;
+      animation: spin 20s linear infinite;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 1.5rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .inline-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .inline-options input[type="radio"] {
+      margin-right: 0.4rem;
+    }
+
+    button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Apply animations to elements */
+    .container {
+      animation: slideIn 1.5s ease-out;
+    }
+
+    .decorative-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .decorative-images img {
+      max-width: 30%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      animation: float 6s ease-in-out infinite, subtleRotate 20s linear infinite;
+    }
+
+    /* Additional animations */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes subtleRotate {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .inline-options {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>แบบฟอร์มบริการการตลาดท้องถิ่น<br>Local Marketing Service Intake</h1>
+    <p>กรุณากรอกข้อมูลทั้งภาษาไทยและอังกฤษเพื่อช่วยให้สัญญางานครบถ้วน/ Please fill out in Thai and English for a complete service agreement.</p>
+    <!-- Logo container with rotating logo -->
+    <div class="logo-container">
+      <!-- Place your logo file in the same repository as 'logo.png' -->
+      <img src="logo.png" alt="โลโก้การตลาด / Marketing logo">
+    </div>
+  </header>
+  <div class="container">
+    <form>
+      <!-- Agent selection -->
+      <h2>ข้อมูลตัวแทน / Agent Information</h2>
+      <div class="form-group">
+        <label for="agentName">ชื่อผู้แนะนำ (ไทย) / Agent Name (TH)</label>
+        <input type="text" id="agentName" name="agentName" placeholder="เช่น นางสาวสุนิตา" required>
+      </div>
+      <div class="form-group">
+        <label for="agentNameEn">Agent Name (EN) / ชื่อผู้แนะนำ (อังกฤษ)</label>
+        <input type="text" id="agentNameEn" name="agentNameEn" placeholder="e.g. Sunita" required>
+      </div>
+      <!-- Client info -->
+      <h2>ข้อมูลธุรกิจ / Business Information</h2>
+      <div class="form-group">
+        <label for="businessName">ชื่อธุรกิจ (ไทย) / Business Name (TH)</label>
+        <input type="text" id="businessName" name="businessName" placeholder="กรอกชื่อธุรกิจ" required>
+      </div>
+      <div class="form-group">
+        <label for="businessNameEn">Business Name (EN) / ชื่อธุรกิจ (อังกฤษ)</label>
+        <input type="text" id="businessNameEn" name="businessNameEn" placeholder="Enter business name in English" required>
+      </div>
+      <div class="form-group">
+        <label for="contactPerson">ชื่อผู้ติดต่อ (ไทย) / Contact Person (TH)</label>
+        <input type="text" id="contactPerson" name="contactPerson" placeholder="ชื่อ-นามสกุล" required>
+      </div>
+      <div class="form-group">
+        <label for="contactPersonEn">Contact Person (EN) / ชื่อผู้ติดต่อ (อังกฤษ)</label>
+        <input type="text" id="contactPersonEn" name="contactPersonEn" placeholder="Full name in English" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">หมายเลขโทรศัพท์ / Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="081-234-5678" required>
+      </div>
+      <div class="form-group">
+        <label for="email">อีเมล / Email</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="address">ที่อยู่ธุรกิจ / Business Address</label>
+        <textarea id="address" name="address" placeholder="กรอกที่อยู่ / Enter full address" required></textarea>
+      </div>
+      <!-- GMB information -->
+      <h2>สถานะ Google Business Profile</h2>
+      <div class="form-group">
+        <label>ธุรกิจมีโปรไฟล์ Google Business หรือไม่? / Does the business already have a Google Business Profile?</label>
+        <div class="inline-options">
+          <label><input type="radio" name="hasGMB" value="yes" required> มี / Yes</label>
+          <label><input type="radio" name="hasGMB" value="no"> ไม่มี / No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gmbLink">ลิงก์โปรไฟล์ (ถ้ามี) / Profile link (if available)</label>
+        <input type="text" id="gmbLink" name="gmbLink" placeholder="วางลิงก์ / Paste link">
+      </div>
+      <!-- Service options -->
+      <h2>เลือกแพ็กเกจบริการ / Choose Service Package</h2>
+      <div class="form-group">
+        <label for="monthlyPackage">แพ็กเกจรายเดือน / Monthly Package</label>
+        <select id="monthlyPackage" name="monthlyPackage" required>
+          <option value="">-- โปรดเลือก / Please select --</option>
+          <option value="basic">พื้นฐาน / Basic (3 000–5 000฿)</option>
+          <option value="standard">มาตรฐาน / Standard (5 000–8 000฿)</option>
+          <option value="advanced">ขั้นสูง / Advanced (8 000–15 000฿)</option>
+          <option value="none">ไม่ได้เลือกแพ็กเกจรายเดือน / No monthly package</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="oneTime">ต้องการบริการตั้งค่าโปรไฟล์ครั้งเดียวหรือไม่? / Need one‑time profile setup?</label>
+        <select id="oneTime" name="oneTime" required>
+          <option value="">-- โปรดเลือก / Please select --</option>
+          <option value="yes">ใช่ / Yes (5 000–8 000฿)</option>
+          <option value="no">ไม่ / No</option>
+        </select>
+      </div>
+      <!-- Website options -->
+      <h2>ตัวเลือกเว็บไซต์ / Website Options</h2>
+      <div class="form-group">
+        <label for="websiteOption">เลือกประเภทเว็บไซต์ที่ต้องการ / Choose website option</label>
+        <select id="websiteOption" name="websiteOption" required>
+          <option value="">-- โปรดเลือก / Please select --</option>
+          <option value="noNeed">ไม่ต้องการเว็บไซต์ / No need</option>
+          <option value="freeBrochure">เว็บไซต์แสดงข้อมูลฟรี / Free brochure site</option>
+          <option value="advancedSite">เว็บไซต์ขายของหรือฟังก์ชันขั้นสูง / E‑commerce or complex site</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="additionalNotes">หมายเหตุเพิ่มเติม / Additional Notes</label>
+        <textarea id="additionalNotes" name="additionalNotes" placeholder="ข้อมูลเพิ่มเติม, ความต้องการพิเศษ ฯลฯ / Additional information or special requirements"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">ส่งแบบฟอร์ม / Submit Form</button>
+      </div>
+    </form>
+  </div>
+  <!-- Decorative images section -->
+  <div class="decorative-images">
+    <img src="825906d3-8f8d-4d04-9fdb-982cef240996.png" alt="สัญลักษณ์การตลาดหลากสี / Colorful marketing icons">
+    <img src="e4deca5c-6404-49eb-ae08-63f2d42093d7.png" alt="พื้นหลังการตลาดสร้างสรรค์ / Creative marketing backdrop">
+    <img src="490cc364-0eaf-4e25-964b-3da46c00b2fc.png" alt="ไอคอนธุรกิจและเทคโนโลยี / Business and technology icons">
+  </div>
+</body>
+</html>
